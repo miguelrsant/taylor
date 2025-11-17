@@ -1,9 +1,6 @@
 "use client";
 
 type BackendResponse = {
-  ok: boolean;
-  status: number;
-  statusText: string;
   data: any;
 };
 
@@ -13,25 +10,14 @@ export default function Page() {
 const [responseInfo, setResponseInfo] = useState<BackendResponse | null>(null);
 
 useEffect(() => {
-  fetch("http://localhost:8000")
+  fetch("http://localhost:8000/status/")
     .then(async (res) => {
       const body = await res.json();
 
       setResponseInfo({
-        ok: res.ok,
-        status: res.status,
-        statusText: res.statusText,
         data: body,
       });
     })
-    .catch((err) => {
-      setResponseInfo({
-        ok: false,
-        status: 0,
-        statusText: err.message,
-        data: null,
-      });
-    });
 }, []);
 
   return (
