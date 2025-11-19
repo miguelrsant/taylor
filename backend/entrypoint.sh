@@ -29,7 +29,7 @@ echo "✅ Postgres está pronto!"
 # ================================
 echo "🚀 Aplicando migrations..."
 
-pdm run flask --app main.py db upgrade -d migrations
+pdm run flask --app main.py db upgrade -d database/migrations
 
 if [ $? -ne 0 ]; then
     echo "❌ Erro ao rodar migrations!"

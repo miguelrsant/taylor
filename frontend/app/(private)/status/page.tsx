@@ -1,48 +1,17 @@
-"use client";
+"use server"
 
-type BackendResponse = {
-  data: any;
-};
+export default async function Page() {
+  const host = process.env.NEXT_API
+  const res = await fetch(`${host}/status/`, { cache: "no-store" });
 
-import { useEffect, useState } from "react";
+  if (!res.ok) throw new Error(`Erro: ${res.statusText}`);
 
-export default function Page() {
-  const [responseInfo, setResponseInfo] = useState<BackendResponse | null>(null);
-  const [error, setError] = useState<string | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
-  useEffect(() => {
-    fetch("http://localhost:8000/status/")
-      .then(async (res) => {
-        if (!res.ok) {
-          throw new Error(`Erro na rede: ${res.status} ${res.statusText}`);
-        }
-        const body = await res.json();
-        setResponseInfo({
-          data: body,
-        });
-      })
-      .catch((err) => {
-        console.error("Falha no fetch:", err);
-        setError(err.message);
-      })
-      .finally(() => {
-        setIsLoading(false); 
-      });
-  }, []);
-
-
-  if (isLoading) {
-    return <div><h1>Carregando dados do backend...</h1></div>;
-  }
-
-  if (error) {
-    return <div><h1>Erro ao buscar dados</h1><p>{error}</p></div>;
-  }
+  const body = await res.json();
 
   return (
     <div>
       <h1>Resposta do Backend</h1>
-      <pre>{JSON.stringify(responseInfo, null, 2)}</pre>
+      <pre>{JSON.stringify(body, null, 2)}</pre>
     </div>
   );
 }
