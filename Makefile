@@ -19,3 +19,7 @@ build: kill-ports
 	cp .env.build .env
 	docker-compose up --build -d
 
+restart: kill-ports
+	docker compose down -v &
+	docker system prune -a --force &
+	docker volume prune -a --force
