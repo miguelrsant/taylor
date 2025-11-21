@@ -8,3 +8,4 @@ npm-debug.log
 .venv
 .pdm-python
 __pycache__
+.vscode/

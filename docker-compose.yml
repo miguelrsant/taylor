@@ -1,16 +1,25 @@
 services:
   db:
     image: postgres:16.9
-    container_name: postgres
+    container_name: taylor-postgres
     env_file:
       - .env
     ports:
       - "5432:5432"
     restart: unless-stopped
+    networks:
+      - taylor-net
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    command: [
+      "postgres",
+      "-c", "max_connections=300",
+      "-c", "shared_buffers=512MB"
+    ]
+
   backend:
-  
     build: ./backend
-    container_name: backend
+    container_name: taylor-backend
     depends_on:
       - db
     ports:
@@ -18,14 +27,34 @@ services:
     restart: unless-stopped
     env_file:
       - .env
+    networks:
+      - taylor-net
+
   frontend:
     build: ./frontend
-    container_name: frontend
+    container_name: taylor-frontend
     depends_on:
-      - db
       - backend
     ports:
       - "3030:3030"
     env_file:
       - .env
     restart: unless-stopped
+    networks:
+      - taylor-net
+
+  nginx:
+    build: ./nginx
+    container_name: taylor-nginx
+    depends_on:
+      - frontend
+      - backend
+    ports:
+      - "80:80"
+      - "443:443"
+    networks:
+      - taylor-net
+networks:
+  taylor-net:
+volumes:
+  pgdata:

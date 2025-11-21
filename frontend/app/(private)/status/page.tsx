@@ -1,7 +1,7 @@
 "use server"
 
 export default async function Page() {
-  const host = process.env.NEXT_API
+  const host = process.env.API_URL
   const res = await fetch(`${host}/status/`, { cache: "no-store" });
 
   if (!res.ok) throw new Error(`Erro: ${res.statusText}`);
