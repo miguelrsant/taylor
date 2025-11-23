@@ -1,10 +1,15 @@
 "use client";
-import { useEffect } from "react";
+import { useLayoutEffect } from "react";
 import { gsap } from "gsap";
 
 export default function Logind() {
-  useEffect(() => {
-    window.scrollTo(0, 0);
+  useLayoutEffect(() => {
+    // força o scroll voltar ao topo antes e depois da hidratação
+    requestAnimationFrame(() => {
+      window.scrollTo(0, 0);
+      setTimeout(() => window.scrollTo(0, 0), 50);
+    });
+
     const scrollBarWidth =
       window.innerWidth - document.documentElement.clientWidth;
 
