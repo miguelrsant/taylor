@@ -7,8 +7,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: radial-gradient(circle, #03c1f52d, #03c1f513, #03c1f507, #03c1f507, #03c1f500,#03c1f500, #03c1f500); 
-    animation: pulse 2.5s infinite ease-in-out;
+    background: radial-gradient(circle, #03c1f52d, #03c1f51a, #03c1f507, #03c1f507, #03c1f500,#03c1f500, #03c1f500); 
+    animation: pulse 1.5s infinite ease-in-out;
+    animation-delay: 4s;
 
     background-position: center;
     background-repeat: no-repeat;
@@ -49,6 +50,7 @@
 
             .taylor-principal{
                 font-size: clamp(35px, 8vw, 65px);
+                animation: letterExpand 3s ease-in-out infinite;
             }
             .taylor-secundario{
                 margin: 5px 0px;

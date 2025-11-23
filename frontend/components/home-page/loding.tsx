@@ -5,7 +5,7 @@ import { gsap } from "gsap";
 export default function Logind() {
 
     useEffect(() => {
-
+    window.scrollTo(0, 0);
     const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
 
     if (scrollBarWidth > 0) {

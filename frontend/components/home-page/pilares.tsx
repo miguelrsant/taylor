@@ -1,4 +1,57 @@
+"use client"
+
+import { gsap } from 'gsap';
+import { useEffect } from 'react';
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 export default function Pilares(){
+          useEffect(() => {
+          gsap.registerPlugin(ScrollTrigger)
+          gsap.fromTo(
+              ".text-pilar-taylor",
+              { y: 100,
+                opacity: 0
+              },
+              {
+              y: 0,
+              opacity: 1,
+              duration: 2,
+              scrollTrigger: {
+                trigger: 'text-pilar-taylor',
+              }
+              }
+          );
+            gsap.fromTo(
+              ".text-pilar-paragrafo",
+              { y: 100,
+                opacity: 0
+              },
+              {
+              y: 0,
+              opacity: 1,
+              duration: 2,
+              delay: 0.3,
+              scrollTrigger: {
+                trigger: 'text-pilar-paragrafo',
+              }
+              }
+          );
+          gsap.fromTo(
+              ".card-pilar",
+              { y: 300,
+                opacity: 0
+              },
+              {
+              y: 0,
+              opacity: 1,
+              duration: 2,
+              scrollTrigger: {
+                trigger: 'card-pilar',
+              }
+              }
+          );
+          }, []);
+      
     return (
       <div className="pilares">
         <div className="text-pilares">

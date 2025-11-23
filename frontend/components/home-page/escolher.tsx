@@ -1,4 +1,42 @@
+"use client"
+
+import { gsap } from 'gsap';
+import { useEffect } from 'react';
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 export default function Escolher() {
+
+      useEffect(() => {
+          gsap.registerPlugin(ScrollTrigger)
+          gsap.fromTo(
+              ".text-escolher",
+              { y: 100,
+                opacity: 0
+              },
+              {
+              y: 0,
+              opacity: 1,
+              duration: 2,
+              scrollTrigger: {
+                trigger: '.text-escolher',
+              }
+              }
+          );
+          gsap.fromTo(
+              ".card-escolher",
+              { y: 200,
+                opacity: 0
+              },
+              {
+              y: 0,
+              opacity: 1,
+              duration: 1.7,
+              scrollTrigger: {
+                trigger: '.card-escolher',
+              }
+              }
+          );
+          }, []);
     return (
       <div className="escolher">
         <div className="text-escolher">

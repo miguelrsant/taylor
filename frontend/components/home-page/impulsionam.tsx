@@ -1,4 +1,56 @@
+"use client"
+
+import { gsap } from 'gsap';
+import { useEffect } from 'react';
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 export default function Impulsionam() {
+
+        useEffect(() => {
+          gsap.registerPlugin(ScrollTrigger)
+          gsap.fromTo(
+              ".text-impulsionam",
+              { y: 100,
+                opacity: 0
+              },
+              {
+              y: 0,
+              opacity: 1,
+              duration: 2,
+              scrollTrigger: {
+                trigger: '.text-impulsionam',
+              }
+              }
+          );
+          gsap.fromTo(
+              ".card-impulsionam",
+              { y: 100,
+                opacity: 0
+              },
+              {
+              y: 0,
+              opacity: 1,
+              duration: 1.7,
+              scrollTrigger: {
+                trigger: '.card-impulsionam',
+              }
+              }
+          );
+            gsap.fromTo(
+              ".card-principal-impulsionam",
+              { y: 120,
+                opacity: 0
+              },
+              {
+              y: 0,
+              opacity: 1,
+              duration: 1,
+              scrollTrigger: {
+                trigger: '.card-principal-impulsionam',
+              }
+              }
+          );
+          }, []);
     return (
         <div className="impulsionam">
           <div className="text-impulsionam">
