@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .home {
   padding: 5% 0;
   max-width: 1440px;
@@ -26,14 +27,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 6px;
+  padding: 6px 10px;
   border: 1px solid;
   border-radius: 20px;
   border-color: #252B37;
 }
 .home .home-page .business img {
   width: clamp(15px, 2vw, 20px);
-  animation: rotacaoInfinita 15s linear infinite;
 }
 .home .home-page .business p {
   margin-left: 5px;
@@ -182,7 +182,7 @@
 .text-impulsionam h1 {
   width: 90%;
   max-width: 600px;
-  font-size: clamp(25px, 8vw, 40px);
+  font-size: clamp(22px, 6vw, 40px);
 }
 .text-impulsionam p {
   width: 95%;
@@ -246,7 +246,7 @@
 }
 .text-card-p-impulsionam h2 {
   color: #04B9FF;
-  font-size: clamp(25px, 6vw, 35px);
+  font-size: clamp(20px, 6vw, 30px);
 }
 .text-card-p-impulsionam p {
   margin-top: 7px;
@@ -359,15 +359,18 @@
   align-items: center;
 }
 .negocio footer {
-  height: 50px;
+  height: 60px;
   border-top: 2px solid #14171E;
   background-color: #0B0E13;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
+  display: flex;
+  flex-direction: column;
 }
 .negocio footer p {
+  margin-top: 7px;
   font-size: clamp(10px, 3vw, 13px);
 }
 
@@ -392,11 +395,12 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  text-align: center;
 }
 .cartao-negocio .text-cartao-negocio h1 {
   width: 100%;
   max-width: 700px;
-  font-size: clamp(18px, 7vw, 40px);
+  font-size: clamp(18px, 6vw, 40px);
 }
 .cartao-negocio .text-cartao-negocio p {
   width: 90%;
@@ -437,14 +441,10 @@ h1, h2, h3 {
   justify-content: center;
 }
 
-@keyframes rotacaoInfinita {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+html {
+  overflow-y: scroll; /* Mantém espaço do scroll fixo */
 }
+
 body {
   background-color: #0C0F14;
 }
@@ -505,4 +505,47 @@ body {
 
 .btn-comecar:hover {
   transform: scale(1.1);
+}
+
+.loging-page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #0C1015;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loding-svg {
+  height: 100px;
+}
+.loding-svg path {
+  stroke: rgba(255, 255, 255, 0);
+  stroke-width: 0.5px;
+  animation: draw 60s ease;
+  animation-delay: 0.3s;
+  stroke-dasharray: 4500;
+}
+.loding-svg g {
+  stroke: rgba(255, 255, 255, 0);
+  animation: draw 60s ease;
+  stroke-dasharray: 4500;
+  animation-delay: 1s;
+}
+.loding-svg g circle {
+  stroke-width: 0.5px;
+}
+
+@keyframes draw {
+  0% {
+    stroke-dashoffset: 4500;
+    stroke: #fff;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    stroke: #fff;
+  }
 }/*# sourceMappingURL=index.css.map */

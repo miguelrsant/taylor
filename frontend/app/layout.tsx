@@ -17,7 +17,7 @@ export default function RootLayout({
     <html lang="pt-br"
     data-lt-installed="true">
       <head>
-        <link rel="shortcut icon" href="./svg/taylor-logo-gradiente.svg"/>
+        <link rel="shortcut icon" href="./svg/taylor-logo-white.svg"/>
       </head>
       <body>
         {children}

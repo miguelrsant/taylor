@@ -25,14 +25,13 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 6px;
+            padding: 6px 10px;
             border: 1px solid;
             border-radius: 20px;
             border-color: #252B37;
 
             img{
                 width: clamp(15px, 2vw, 20px);
-                animation: rotacaoInfinita 15s linear infinite;
             }
             p{
                 margin-left: 5px;

@@ -36,18 +36,12 @@ h1, h2, h3{
     align-items: center;
     justify-content: center;
 }
-
-@keyframes rotacaoInfinita {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
+html {
+  overflow-y: scroll; /* Mantém espaço do scroll fixo */
 }
 
-body{
-    background-color: #0C0F14;
+body {
+  background-color: #0C0F14;
 }
 
 ::-webkit-scrollbar-track {
@@ -107,4 +101,50 @@ body{
 
 .btn-comecar:hover{
     transform: scale(1.1);
+}
+
+.loging-page{
+  position: absolute;
+   top: 0;
+   left: 0;
+   background-color: #0C1015;
+   height: 100%;
+   width: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+
+.loding-svg{
+  height: 100px;
+
+  path{
+    stroke: #ffffff00;
+    stroke-width: 0.5px;
+    animation:  draw 60s ease;
+    animation-delay: 0.3s;
+    stroke-dasharray: 4500;
+  }
+  g{
+    stroke: #ffffff00;
+    animation:  draw 60s ease;
+    stroke-dasharray: 4500;
+    animation-delay: 1s;
+    circle {
+      stroke-width: 0.5px;
+    }
+  }
+}
+
+@keyframes draw {
+  0% {
+    stroke-dashoffset: 4500;
+    stroke: #fff;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+    stroke: #fff;
+  }
 }

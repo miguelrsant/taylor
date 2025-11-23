@@ -5,7 +5,7 @@ export default function Home() {
               <div className="home">
         <div className="home-page">
           <div className="business">
-            <img src="/svg/bussine-engrenagem.svg" alt="Engrenagem" />
+            <img src="/png/star.png" alt="Engrenagem" />
             <p>Business Super Intelligence Platform</p>
           </div>
           <div className="texto-home">

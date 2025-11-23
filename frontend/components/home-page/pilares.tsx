@@ -44,7 +44,7 @@ export default function Pilares(){
               </div>
               <div className="vantagem-pilar">
                 <div className="bolinha-pilar"></div>
-                <p className="p-vantagem-pilar">gráficos dinâmicos</p>
+                <p className="p-vantagem-pilar">Gráficos dinâmicos</p>
               </div>
             </div>
           </div>

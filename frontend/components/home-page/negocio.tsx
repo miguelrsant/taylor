@@ -13,6 +13,7 @@ export default function Negocio() {
           </div>
         </div>
         <footer className="footer-negocio">
+            <p>Designed & Developed by <strong><a style={{ color: "#ffffffca" }} href="https://www.linkedin.com/in/miguelrsant/">Miguel Angelo</a></strong></p>
             <p>© 2025 TAYLOR — Todos os direitos reservados.</p>
         </footer>
       </div>
