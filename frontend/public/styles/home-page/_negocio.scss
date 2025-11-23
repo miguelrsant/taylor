@@ -1,0 +1,68 @@
+.negocio{
+    width: 100vw;
+    max-width: 1440px;
+    height: 90vh;
+    min-height: 500px;
+    max-height: 800px;
+    background-color: #0B0E13;
+    border-top: 5px solid #14171E;
+    
+    .gradiente-negocio{
+        height: 90%;
+        background-image: linear-gradient(to right, #213f47, #0B2125);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    footer {
+        border-top: 5px solid #14171E;
+        background-color: #0B0E13;
+        height: 10%;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        p{
+            font-size: clamp(10px, 3vw, 20px);
+        }
+    }
+}
+
+.cartao-negocio{
+    width: 90%;
+    max-width: 900px;
+    backdrop-filter: blur(10px);
+    min-height: 260px;
+    border-radius: 15px;
+    background-color: #0f1c23ab;
+    border: 3px solid #252B37;
+    padding: 2% 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+
+    .text-cartao-negocio{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        
+        h1 {
+            width: 100%;
+            max-width: 700px;
+            font-size: clamp(18px, 7vw, 40px);
+        }
+        p {
+            width: 90%;
+            margin-top: 10px;
+            max-width: 600px;
+            font-size: clamp(10px, 3vw, 20px);
+            margin: 15px 0px;
+        }
+    }
+
+}

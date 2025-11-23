@@ -1,4 +1,12 @@
-* {
+@use "home-page/home.scss";
+@use "home-page/escolher.scss";
+@use "home-page/impulsionam.scss";
+@use "home-page/pilares.scss";
+@use "home-page/negocio.scss";
+
+
+
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -10,8 +18,23 @@ p{
     color: #8191A4;
 }
 
-h1{
+h1, h2, h3{
     color: #F8FAFC;
+}
+
+.text-gradient{
+    background-image: linear-gradient(to right, #03C2F5, #13B1A3);
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+}
+
+.all-content{
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
 }
 
 @keyframes rotacaoInfinita {
@@ -27,119 +50,80 @@ body{
     background-color: #0C0F14;
 }
 
-.home{
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: radial-gradient(circle, #03c1f52d, #03c1f51e, #03c1f50e, #03c1f507, #03c1f500,#03c1f500, #03c1f500); 
+::-webkit-scrollbar-track {
+    background-color: #0C1116;
+}
 
-    .home-page{
-        margin-bottom: 10px;
-        width: 95%;
-        max-width: 1440px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        .business{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 6px;
-            border: 1px solid;
-            border-radius: 20px;
-            border-color: #252B37;
+::-webkit-scrollbar {
+    width: 8px;
+    background: #2b2b2b;
+}
+::-webkit-scrollbar-thumb {
+    background: #252B37;
+    border-radius: 10px;
+    transition: background 0.2s ease;
+}
 
-            img{
-                width: clamp(15px, 2vw, 20px);
-                animation: rotacaoInfinita 5s linear infinite;
-            }
-            p{
-                margin-left: 5px;
-                font-size: clamp(8px, 2vw, 14px);
-            }
-        }
-        .texto-home{
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 10px 0px;
-            text-align: center;
 
-            .taylor-principal{
-                font-size: clamp(35px, 8vw, 65px);
-                background-image: linear-gradient(to right, #03C2F5, #13B1A3);
-                background-clip: text;
-                color: transparent;
-                display: inline-block;
-            }
-            .taylor-secundario{
-                margin: 5px 0px;
-                font-size: clamp(25px, 8vw, 60px);
-                width: 100%;
-                max-width: 800px;
-            }
-            .taylor-paragrafo{
-                padding: 8px 0px;
-                width: 100%;
-                max-width: 650px;
-                font-size: clamp(10px, 3vw, 20px);
-            }
-        }
-    }
-    .btn-home{
-        padding: 4px 8px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        height: clamp(25px, 7vh, 35px);
-        border-radius: 5px;
-        cursor: pointer;
-        background-image: linear-gradient(to right, #03C2F5, #13B1A3);
-        transition: 2s ease;
-        margin: 5px 0px;
+.cursor-outer, .cursor-dot {
+  position: fixed;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9999;
+}
 
-        p {
-            font-size: clamp(8px, 3vw, 12px);
-            padding: 0px 8px;
-            color: black;
-        }
-    }
-    .btn-home:hover{
-        transform: scale(1.1);
-    }
-    .vantagens{
-        padding: 0px 10px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 95%;
-        max-width: 800px;
-        .cards-home{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 10px 0px;
+.cursor-outer {
+  height: 50px;
+  width: 50px;
+  border: 1px solid white;
+  backdrop-filter: blur(1px);
+  position: fixed;
+  border-radius: 50%;
+  transform: translate(-50%, -50%); 
+  pointer-events: none;
+  z-index: 9999;
+}
 
-            .cards-h1{
-                font-size: clamp(15px, 5.5vw, 35px);
-                background-image: linear-gradient(to right, #03C2F5, #13B1A3);
-                background-clip: text;
-                color: transparent;
-                display: inline-block;
-            }
+.cursor-dot {
+  height: 10px;
+  width: 10px;
+  background-color: white;
+  transition: all 0s linear;
+}
 
-            .cards-p{
-                font-size: clamp(10px, 2.5vw, 17px);
-            }
-        }
-    }
+@keyframes pulse {
+  0% {
+    background-size: 100% 100%;
+  }
+  50% {
+    background-size: 120% 120%;
+  }
+  100% {
+    background-size: 100% 100%;
+  }
+}
+
+.btn-comecar{
+  padding: 4px 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: clamp(25px, 7vh, 35px);
+  border-radius: 5px;
+  background-color: #00BFFF;
+  box-shadow: 0 0 20px 5px #00bfff54;
+  transition: 2s ease;
+  margin: 5px 0px;
+
+  p {
+      font-size: clamp(8px, 3vw, 12px);
+      padding: 0px 8px;
+      color: black;
+  }
+}
+
+.btn-comecar:hover{
+    transform: scale(1.1);
 }

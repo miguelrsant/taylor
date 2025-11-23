@@ -1,0 +1,92 @@
+.home{
+    padding: 5% 0;
+    max-width: 1440px;
+    width: 100vw;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle, #03c1f52d, #03c1f513, #03c1f507, #03c1f507, #03c1f500,#03c1f500, #03c1f500); 
+    animation: pulse 2.5s infinite ease-in-out;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    .home-page{
+        margin-bottom: 10px;
+        width: 95%;
+        max-width: 1440px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 15px;
+        .business{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 6px;
+            border: 1px solid;
+            border-radius: 20px;
+            border-color: #252B37;
+
+            img{
+                width: clamp(15px, 2vw, 20px);
+                animation: rotacaoInfinita 15s linear infinite;
+            }
+            p{
+                margin-left: 5px;
+                font-size: clamp(8px, 2vw, 14px);
+            }
+        }
+        .texto-home{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 0px;
+            text-align: center;
+
+            .taylor-principal{
+                font-size: clamp(35px, 8vw, 65px);
+            }
+            .taylor-secundario{
+                margin: 5px 0px;
+                font-size: clamp(25px, 8vw, 60px);
+                width: 100%;
+                max-width: 800px;
+            }
+            .taylor-paragrafo{
+                padding: 8px 0px;
+                width: 100%;
+                max-width: 620px;
+                font-size: clamp(10px, 3vw, 20px);
+            }
+        }
+    }
+    .vantagens{
+        margin-top: 20px;
+        padding: 0px 3.5%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: clamp(320px, 80vw, 700px);
+        .cards-home{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 10px 0px;
+
+            .cards-h1{
+                font-size: clamp(15px, 5.5vw, 25px);
+            }
+
+            .cards-p{
+                font-size: clamp(10px, 2.5vw, 13px);
+            }
+        }
+    }
+}

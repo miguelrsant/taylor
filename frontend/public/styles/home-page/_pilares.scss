@@ -1,0 +1,92 @@
+.pilares{
+    width: 100vw;
+    max-width: 1440px;
+    min-height: 700px;
+    background-color: #0B0E13;
+    border-top: 5px solid #14171E;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2% 0px;
+    padding-top: 4%;
+}
+
+.text-pilares {
+    width: clamp(270px, 90%, 600px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 30px;
+    gap: 10px;
+
+    h1 {
+        font-size: clamp(25px, 8vw, 40px);
+    }
+    p {
+        font-size: clamp(10px, 3vw, 20px);
+    }
+
+}
+.cards-pilares{
+  padding: 3%;
+  width: 90%;
+  min-width: 320px;
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+
+  justify-content: center;
+  justify-items: center;
+}
+.card-pilar{
+  min-height: 300px;
+  border: 2px solid #252B37;
+  background-color: #14181F;
+  border-radius: 7px;
+  flex: 1 1 290px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+    img{
+        background-color: #0d202b;
+        padding: 5px;
+        width: clamp(35px, 5vw, 45px);
+        border-radius: 5px;
+    }
+    p{
+        font-size: clamp(8px, 4vw, 16px);
+    }
+}
+
+.text-pilar-cards{
+    margin-top: 5px;
+
+    p{
+        margin-top: 15px;
+    }
+}
+.tres-vantagens-pilares{
+    margin-top: 5px;
+}
+
+.vantagem-pilar{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    .bolinha-pilar{
+        width: 5px;
+        height: 5px;
+        background-color: #00BFFF;
+        margin-right: 6px;
+        border-radius: 100%;
+    }
+    .p-vantagem-pilar{
+        margin-bottom: 3px;
+    }
+}
