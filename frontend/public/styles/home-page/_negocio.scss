@@ -1,13 +1,11 @@
 .negocio{
     width: 100vw;
     max-width: 1440px;
-    height: 90vh;
-    min-height: 500px;
-    max-height: 800px;
     background-color: #0B0E13;
     border-top: 5px solid #14171E;
     
     .gradiente-negocio{
+        padding: 5% 7%;
         height: 90%;
         background-image: linear-gradient(to right, #213f47, #0B2125);
         display: flex;
@@ -16,16 +14,16 @@
     }
 
     footer {
-        border-top: 5px solid #14171E;
+        height: 50px;
+        border-top: 2px solid #14171E;
         background-color: #0B0E13;
-        height: 10%;
         text-align: center;
         display: flex;
         justify-content: center;
         align-items: center;
 
         p{
-            font-size: clamp(10px, 3vw, 20px);
+            font-size: clamp(10px, 3vw, 13px);
         }
     }
 }
@@ -37,7 +35,7 @@
     min-height: 260px;
     border-radius: 15px;
     background-color: #0f1c23ab;
-    border: 3px solid #252B37;
+    border: 2px solid #252B37;
     padding: 2% 0px;
     display: flex;
     justify-content: center;
