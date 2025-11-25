@@ -17,7 +17,7 @@ export default function Escolher() {
         scrollTrigger: {
           trigger: ".text-escolher",
         },
-      }
+      },
     );
     gsap.fromTo(
       ".card-escolher",
@@ -29,7 +29,7 @@ export default function Escolher() {
         scrollTrigger: {
           trigger: ".card-escolher",
         },
-      }
+      },
     );
   }, []);
   return (
@@ -38,7 +38,7 @@ export default function Escolher() {
         <h1>
           Por que escolher <strong className="text-gradient">TAYLOR</strong>?
         </h1>
-        <p>A plataforma que combina poder, flexibilidade e simplicidade</p>
+        <p>A plataforma que combina gestão, flexibilidade e simplicidade</p>
       </div>
       <div className="cards-escolher">
         <div className="card-escolher">

@@ -27,12 +27,12 @@
   }
   p {
     font-size: clamp(10px, 3vw, 20px);
+    width: 95%;
   }
 }
 .cards-pilares {
   padding: 3%;
-  width: 90%;
-  min-width: 320px;
+  width: 98%;
   margin-top: 10px;
   display: flex;
   flex-wrap: wrap;

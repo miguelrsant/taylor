@@ -3,6 +3,7 @@
 @use "home-page/impulsionam.scss";
 @use "home-page/pilares.scss";
 @use "home-page/negocio.scss";
+@use "waitingline/waitingline.scss";
 
 * {
   margin: 0;
@@ -52,12 +53,14 @@ h3 {
 @keyframes letterExpand {
   0% {
     letter-spacing: 0px;
+    background-position: 0% 50%;
   }
   50% {
     letter-spacing: 5px;
   }
   100% {
     letter-spacing: 0px;
+    background-position: 300% 50%;
   }
 }
 
@@ -190,4 +193,12 @@ body {
     stroke-dashoffset: 0;
     stroke: #fff;
   }
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px #0c0f14 inset !important;
+  -webkit-text-fill-color: white !important;
+  border: 0.2px solid #252b37;
+  outline: 0;
+  caret-color: #00bfff !important;
 }

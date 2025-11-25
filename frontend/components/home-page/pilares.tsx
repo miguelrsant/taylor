@@ -15,7 +15,7 @@ export default function Pilares() {
         opacity: 1,
         duration: 1.3,
         delay: 3.5,
-      }
+      },
     );
     gsap.fromTo(
       ".text-pilar-paragrafo",
@@ -27,7 +27,7 @@ export default function Pilares() {
         scrollTrigger: {
           trigger: "text-pilar-paragrafo",
         },
-      }
+      },
     );
     gsap.fromTo(
       ".card-pilar",
@@ -39,7 +39,7 @@ export default function Pilares() {
         scrollTrigger: {
           trigger: "card-pilar",
         },
-      }
+      },
     );
   }, []);
 

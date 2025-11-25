@@ -4,7 +4,6 @@ import { gsap } from "gsap";
 
 export default function Logind() {
   useLayoutEffect(() => {
-    // força o scroll voltar ao topo antes e depois da hidratação
     requestAnimationFrame(() => {
       window.scrollTo(0, 0);
       setTimeout(() => window.scrollTo(0, 0), 50);
@@ -31,7 +30,7 @@ export default function Logind() {
           document.documentElement.style.overflow = "auto";
           document.documentElement.style.marginRight = "0px";
         },
-      }
+      },
     );
 
     return () => {

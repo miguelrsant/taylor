@@ -17,7 +17,7 @@ export default function Negocio() {
         scrollTrigger: {
           trigger: ".cartao-negocio",
         },
-      }
+      },
     );
     gsap.fromTo(
       ".text-cartao-negocio",
@@ -29,7 +29,7 @@ export default function Negocio() {
         scrollTrigger: {
           trigger: ".cartao-negocio",
         },
-      }
+      },
     );
     gsap.fromTo(
       ".btn-negocio",
@@ -41,7 +41,7 @@ export default function Negocio() {
         scrollTrigger: {
           trigger: ".cartao-negocio",
         },
-      }
+      },
     );
   }, []);
   return (
@@ -54,7 +54,7 @@ export default function Negocio() {
               <strong className="text-gradient">seu negócio?</strong>
             </h1>
             <p>
-              Junte-se às empresas que já automatizam processos, geram indights
+              Junte-se às empresas que já automatizam processos, geram insights
               e tomam decisões mais inteligentes com TAYLOR.
             </p>
           </div>

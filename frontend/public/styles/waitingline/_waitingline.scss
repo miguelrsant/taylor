@@ -1,0 +1,85 @@
+body {
+  overflow: hidden;
+}
+
+.waitingline {
+  width: 100vw;
+  height: 100vh;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  gap: 15px;
+  padding: 3% 0;
+
+  .card-waitingline {
+    margin: 0 3%;
+    height: clamp(500px, 80vh, 650px);
+    border-radius: 15px;
+    border: 2px solid #252b37;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3% 1%;
+
+    h1 {
+      animation: letterExpand 6s infinite;
+    }
+
+    p {
+      width: 95%;
+      max-width: 500px;
+      margin: 30px 0px;
+      margin-top: 10px;
+      margin-top: 10px;
+      font-size: clamp(12px, 4vw, 15px);
+    }
+    .cadastro-taylor {
+      height: 30vh;
+      width: 95%;
+      padding: 0 3%;
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 25px 0px;
+        align-items: center;
+        margin-bottom: 30px;
+        input {
+          height: 40px;
+          width: 100%;
+          max-width: 400px;
+          padding: 0px 2%;
+          border-radius: 10px;
+          outline: 0;
+          border: 0.2px solid #252b37;
+          background-color: #252b3700;
+          color: white;
+
+          caret-color: #00bfff;
+        }
+        button {
+          width: 100%;
+          max-width: 250px;
+          height: 35px;
+          border-radius: 15px;
+
+          background-color: #00bfff;
+          box-shadow: 0 0 20px 5px #00bfff54;
+          transition: 2s ease;
+          outline: 0;
+          border: 0;
+        }
+
+        button:hover {
+          transform: scale(1.1);
+        }
+      }
+      .p-footer {
+        font-size: clamp(12px, 3vw, 13px);
+      }
+    }
+  }
+}

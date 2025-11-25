@@ -17,7 +17,7 @@ export default function Impulsionam() {
         scrollTrigger: {
           trigger: ".text-impulsionam",
         },
-      }
+      },
     );
     gsap.fromTo(
       ".card-impulsionam",
@@ -29,7 +29,7 @@ export default function Impulsionam() {
         scrollTrigger: {
           trigger: ".card-impulsionam",
         },
-      }
+      },
     );
     gsap.fromTo(
       ".card-principal-impulsionam",
@@ -41,7 +41,7 @@ export default function Impulsionam() {
         scrollTrigger: {
           trigger: ".card-principal-impulsionam",
         },
-      }
+      },
     );
   }, []);
   return (
