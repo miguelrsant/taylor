@@ -15,6 +15,11 @@ dev: kill-ports
 	cd backend && pdm run flask --app main.py db upgrade -d database/migrations
 	cd backend && pdm run gunicorn main:app -b 0.0.0.0:8000 &
 	cd frontend && npm run dev
+	
+build: kill-ports
+	cp .env.build .env
+	docker compose up -d --build
+
 
 restart: kill-ports
 	docker compose down -v &
