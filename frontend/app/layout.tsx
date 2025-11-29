@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 import "../public/styles/index.css";
 
-const metadata: Metadata = {
+export const metadata: Metadata = {
   title: "Taylor: Business Super Intelligence Platform",
   description:
     "TAYLOR é uma plataforma avançada de automação operacional e análise inteligente, transformando dados em decisões estratégicas para empresas de todos os setores.",

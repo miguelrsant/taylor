@@ -11,6 +11,7 @@ kill-ports:
 dev: kill-ports
 	cp .env.dev .env
 	cp .env.dev ./frontend/.env
+	cp .env.dev ./backend/.env
 	docker compose -f docker-compose.yml up -d --build db
 	cd backend && pdm run flask --app main.py db upgrade -d database/migrations
 	cd backend && pdm run gunicorn main:app -b 0.0.0.0:8000 &
