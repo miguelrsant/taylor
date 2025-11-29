@@ -35,7 +35,6 @@ export default function Page() {
         origin: { y: 0.6 },
       });
 
-      // ✔ MENSAGEM MELHORADA
       setMessage("🎉 Seu cadastro foi confirmado! Em breve você receberá novidades especiais.");
 
       form.reset();
@@ -66,7 +65,7 @@ export default function Page() {
               required
             />
 
-            <button type="submit" disabled={loading}>
+            <button type="submit" disabled={loading} style={{cursor: 'pointer'}} >
               {loading ? "Cadastrando..." : "Cadastrar"}
             </button>
           </form>
