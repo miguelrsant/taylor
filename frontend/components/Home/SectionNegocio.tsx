@@ -3,6 +3,7 @@
 import { gsap } from "gsap";
 import { useEffect } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import ButtonComecar from "../Buttons/ButtonComecar";
 
 export default function Negocio() {
   useEffect(() => {
@@ -17,7 +18,7 @@ export default function Negocio() {
         scrollTrigger: {
           trigger: ".cartao-negocio",
         },
-      },
+      }
     );
     gsap.fromTo(
       ".text-cartao-negocio",
@@ -29,7 +30,7 @@ export default function Negocio() {
         scrollTrigger: {
           trigger: ".cartao-negocio",
         },
-      },
+      }
     );
     gsap.fromTo(
       ".btn-negocio",
@@ -41,7 +42,7 @@ export default function Negocio() {
         scrollTrigger: {
           trigger: ".cartao-negocio",
         },
-      },
+      }
     );
   }, []);
   return (
@@ -64,9 +65,7 @@ export default function Negocio() {
               href="/waitingline"
               style={{ textDecoration: "none" }}
             >
-              <div className="btn-comecar">
-                <p>Começar agora →</p>
-              </div>
+              <ButtonComecar />
             </a>
           </div>
         </div>

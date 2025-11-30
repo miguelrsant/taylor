@@ -4,13 +4,16 @@ export async function POST(req: Request) {
   try {
     const body = await req.json();
 
-    const backendRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/waitingline/`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
+    const backendRes = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/waitingline/`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(body),
       },
-      body: JSON.stringify(body),
-    });
+    );
 
     const data = await backendRes.json();
 
@@ -18,7 +21,7 @@ export async function POST(req: Request) {
   } catch (error) {
     return NextResponse.json(
       { status: "error", message: "Erro ao conectar ao servidor." },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

@@ -2,6 +2,8 @@
 
 import { gsap } from "gsap";
 import { useEffect } from "react";
+import Businnes from "../Assets/Business";
+import ButtonComecar from "../Buttons/ButtonComecar";
 
 export default function Home() {
   useEffect(() => {
@@ -17,7 +19,7 @@ export default function Home() {
           pin: ".home",
           scrub: true,
         },
-      },
+      }
     );
     gsap.fromTo(
       ".taylor-principal",
@@ -31,7 +33,7 @@ export default function Home() {
           pin: ".home",
           scrub: true,
         },
-      },
+      }
     );
     gsap.fromTo(
       ".taylor-secundario ",
@@ -45,7 +47,7 @@ export default function Home() {
           pin: ".home",
           scrub: true,
         },
-      },
+      }
     );
     gsap.fromTo(
       ".taylor-paragrafo ",
@@ -59,7 +61,7 @@ export default function Home() {
           pin: ".home",
           scrub: true,
         },
-      },
+      }
     );
     gsap.fromTo(
       ".bt-home",
@@ -74,7 +76,7 @@ export default function Home() {
           pin: ".home",
           scrub: true,
         },
-      },
+      }
     );
     gsap.fromTo(
       ".vantagens",
@@ -88,17 +90,14 @@ export default function Home() {
           pin: ".home",
           scrub: true,
         },
-      },
+      }
     );
   }, []);
 
   return (
     <div className="home">
       <div className="home-page">
-        <div className="business">
-          <img src="/png/star.png" alt="Engrenagem" />
-          <p>Business Super Intelligence Platform</p>
-        </div>
+        <Businnes />
         <div className="texto-home">
           <h1 className="taylor-principal text-gradient">TAYLOR</h1>
           <h1 className="taylor-secundario">
@@ -115,9 +114,8 @@ export default function Home() {
           href="/waitingline"
           style={{ textDecoration: "none" }}
         >
-          <div className="btn-comecar">
-            <p>Começar agora →</p>
-          </div>
+          {" "}
+          <ButtonComecar />
         </a>
       </div>
       <div className="vantagens">
