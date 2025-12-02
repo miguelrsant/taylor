@@ -15,6 +15,8 @@ RUN npm prune --production
 
 FROM node:20.9-alpine
 
+RUN apk update && apk add --no-cache curl
+
 WORKDIR /app
 
 COPY --from=builder /app/package.json ./
