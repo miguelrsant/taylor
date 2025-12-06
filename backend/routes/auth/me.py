@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify
 from database.models.user import User
-from services.auth.me_services import auth_required
+from middlewares.me_required import auth_required
 
 me_route = Blueprint("me", __name__)
 

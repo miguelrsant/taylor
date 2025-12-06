@@ -18,6 +18,9 @@ def create_app():
     from routes.status import status_bp
     app.register_blueprint(status_bp)
 
+    from routes.auth.reset import reset_bp
+    app.register_blueprint(reset_bp)
+
     from routes.auth.recover import recover_bp
     app.register_blueprint(recover_bp)
 
