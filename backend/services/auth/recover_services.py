@@ -6,6 +6,7 @@ from flask import jsonify
 from database.connection import db
 from database.models.user import User
 from database.models.password_reset import PasswordReset
+from database.models.password_reset import generate_id
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -27,7 +28,7 @@ def hash_token(token) -> str:
 
 def RecoverPass(email: str):
     user = User.query.filter_by(email=email, is_active=True).first()
-
+    sid = generate_id()
     if not user:
         return jsonify({"msg": "Invalid credentials"}), 401
 
@@ -35,6 +36,7 @@ def RecoverPass(email: str):
         timedelta(minutes=EXPIRES_MINUTES_PASSWORD_RESET)
 
     payload = {
+        "sid": sid,
         "sub": str(user.id),
         "iss": ISSUER,
         "iat": int(datetime.now(timezone.utc).timestamp()),
@@ -50,6 +52,7 @@ def RecoverPass(email: str):
     token_hash = hash_token(token)
 
     new_password_reset = PasswordReset(
+        id=sid,
         user_id=user.id,
         token_hash=token_hash,
         expires_at=expire,

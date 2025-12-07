@@ -7,7 +7,7 @@ from database.models.password_reset import PasswordReset
 from database.models.sessions import Sessions
 
 
-def ResetPassword(new_password: str, user_id: str, password_reset_obj):
+def ResetPassword(new_password: str, user_id: str, id: str):
 
     user = User.query.get(user_id)
 
@@ -20,7 +20,7 @@ def ResetPassword(new_password: str, user_id: str, password_reset_obj):
     user.password = hashed_password
 
     Sessions.query.filter_by(user_id=user_id).delete()
-    password_reset = PasswordReset.query.get(password_reset_obj.id)
+    password_reset = PasswordReset.query.get(id)
     password_reset.used = True
     db.session.commit()
 

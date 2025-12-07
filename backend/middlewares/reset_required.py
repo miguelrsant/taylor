@@ -38,12 +38,12 @@ def reset_required(f):
         except jwt.InvalidTokenError:
             return jsonify({"msg": "Invalid token"}), 401
 
+        id = payload["sid"]
         user_id = payload["sub"]
 
         truncated = token[:72]
 
-        password_reset = PasswordReset.query.filter_by(
-            user_id=user_id, used=False, revoked=False).first()
+        password_reset = PasswordReset.query.filter_by(id=id, used=False, revoked=False).first()
 
         if not password_reset:
             return jsonify({"msg": "Token not found"}), 401
@@ -65,8 +65,7 @@ def reset_required(f):
             return jsonify({"msg": "Token expired"}), 401
 
         request.user_id = user_id
-        request.password_reset_obj = password_reset
-        request.id = password_reset.id
+        request.id = id
 
         return f(*args, **kwargs)
     return decorated
