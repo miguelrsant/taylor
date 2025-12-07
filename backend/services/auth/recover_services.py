@@ -59,8 +59,6 @@ def RecoverPass(email: str):
 
     db.session.add(new_password_reset)
 
-    user.last_login = datetime.now(timezone.utc)
-
     db.session.commit()
 
     return jsonify({"token_reset": token}), 200

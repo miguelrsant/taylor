@@ -39,10 +39,10 @@ def auth_required(f):
             return jsonify({"msg": "Invalid token"}), 401
 
         user_id = payload["sub"]
-
+        id = payload["sid"]
         truncated = token[:72]
 
-        session = Sessions.query.filter_by(user_id=user_id).first()
+        session = Sessions.query.filter_by(id=id, user_id=user_id).first()
 
         if not session:
             return jsonify({"msg": "Session not found"}), 401

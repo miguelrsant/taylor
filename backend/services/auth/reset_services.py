@@ -20,7 +20,8 @@ def ResetPassword(new_password: str, user_id: str, password_reset_obj):
     user.password = hashed_password
 
     Sessions.query.filter_by(user_id=user_id).delete()
-
+    password_reset = PasswordReset.query.get(password_reset_obj.id)
+    password_reset.used = True
     db.session.commit()
 
     return jsonify({"msg": "Password reset successful"}), 200

@@ -36,6 +36,9 @@ def create_app():
     from routes.waitingline import waitingline_bp
     app.register_blueprint(waitingline_bp)
 
+    from routes.auth.logout import logout_bp
+    app.register_blueprint(logout_bp)
+
     return app
 
 

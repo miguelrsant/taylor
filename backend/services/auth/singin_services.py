@@ -6,6 +6,7 @@ from flask import jsonify
 from database.connection import db
 from database.models.user import User
 from database.models.sessions import Sessions
+from database.models.sessions import generate_id
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -25,6 +26,7 @@ def hash_token(token) -> str:
 
 
 def AcessLogin(email: str, password: str):
+    sid = generate_id()
     user = User.query.filter_by(email=email, is_active=True).first()
 
     if not user:
@@ -37,6 +39,7 @@ def AcessLogin(email: str, password: str):
 
     payload = {
         "sub": str(user.id),
+        "sid": sid,
         "iss": ISSUER,
         "iat": int(datetime.now(timezone.utc).timestamp()),
         "aud": AUDIENCE,
@@ -51,6 +54,7 @@ def AcessLogin(email: str, password: str):
     token_hash = hash_token(token)
 
     new_session = Sessions(
+        id=sid,
         user_id=user.id,
         token_hash=token_hash,
         expires_at=expire,

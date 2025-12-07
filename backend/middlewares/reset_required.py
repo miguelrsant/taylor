@@ -66,6 +66,7 @@ def reset_required(f):
 
         request.user_id = user_id
         request.password_reset_obj = password_reset
+        request.id = password_reset.id
 
         return f(*args, **kwargs)
     return decorated
