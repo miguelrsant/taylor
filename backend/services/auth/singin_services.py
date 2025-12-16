@@ -67,4 +67,15 @@ def AcessLogin(email: str, password: str):
 
     db.session.commit()
 
-    return jsonify({"token": token}), 200
+    response = jsonify({"token": token})
+    response.status_code = 200
+
+    response.set_cookie(
+        "token",
+        token,
+        httponly=True,
+        secure=False,
+        samesite="Lax"
+    )
+
+    return response, 200

@@ -40,6 +40,22 @@ def CreateRegister(name: str, email: str, password: str):
     except Exception as email_error:
         print(f"Erro ao enviar email: {email_error}")
 
-    token = AcessLogin(email, password)[0].json['token']
+    login_response, status = AcessLogin(email, password)
 
-    return jsonify({"msg": "User created", "token": token}), 201
+    if status != 200:
+        return login_response, status
+
+    token = login_response.get_json()["token"]
+
+    response = jsonify({"msg": "User created", "token": token})
+    response.status_code = 201
+
+    response.set_cookie(
+        "token",
+        token,
+        httponly=True,
+        secure=False,
+        samesite="Lax"
+    )
+
+    return response
