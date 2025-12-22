@@ -14,7 +14,7 @@ export function middleware(req: NextRequest) {
     pathname.startsWith("/auth/logout");
 
   if (token && isAuthRoute) {
-    return NextResponse.redirect(new URL("/auth/me", req.url));
+    return NextResponse.redirect(new URL("/", req.url));
   }
 
   if (!token && isProtectedRoute) {

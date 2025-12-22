@@ -1,5 +1,5 @@
 import { cookies } from "next/headers";
-
+import ButtonLogout from "@/components/Buttons/ButtonLogout";
 export const dynamic = "force-dynamic";
 
 export default async function Page() {
@@ -19,9 +19,10 @@ export default async function Page() {
     : await res.text();
 
   return (
-    <div>
+    <div className="PageMe">
       <h1>Status: {res.status}</h1>
       <pre>{JSON.stringify(body, null, 2)}</pre>
+      <ButtonLogout />
     </div>
   );
 }

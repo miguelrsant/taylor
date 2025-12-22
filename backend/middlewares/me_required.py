@@ -60,6 +60,6 @@ def auth_required(f):
             db.session.commit()
             return jsonify({"msg": "Session expired"}), 401
 
-        return f(user_id, *args, **kwargs)
+        return f(user_id, session, *args, **kwargs)
 
     return decorated

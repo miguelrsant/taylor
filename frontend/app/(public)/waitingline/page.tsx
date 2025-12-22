@@ -36,7 +36,7 @@ export default function Page() {
       });
 
       setMessage(
-        "🎉 Seu cadastro foi confirmado! Em breve você receberá novidades especiais.",
+        "🎉 Seu cadastro foi confirmado! Em breve você receberá novidades especiais."
       );
 
       form.reset();
@@ -58,7 +58,7 @@ export default function Page() {
         </p>
 
         <div className="cadastro-taylor">
-          <form onSubmit={handleSubmit}>
+          <form className="form-cadastro" onSubmit={handleSubmit}>
             <input type="text" name="name" placeholder="Joãozinho" required />
             <input
               type="email"

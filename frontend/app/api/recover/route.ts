@@ -4,17 +4,21 @@ export async function POST(req: Request) {
   try {
     const body = await req.json();
 
-    const backendRes = await fetch(`${process.env.API_URL}/waitingline/`, {
+    const backendRes = await fetch(`${process.env.API_URL}/recover/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(body),
+      body: JSON.stringify({ email: body.email }),
     });
 
     const data = await backendRes.json();
 
-    return NextResponse.json(data, { status: backendRes.status });
+    const response = NextResponse.json(data, {
+      status: backendRes.status,
+    });
+
+    return response;
   } catch (error) {
     return NextResponse.json(
       { status: "error", message: "Erro ao conectar ao servidor." },

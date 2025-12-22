@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-export default function LogoutPage() {
+export default function ButtonLogout() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
 
@@ -32,7 +32,7 @@ export default function LogoutPage() {
   };
 
   return (
-    <div className="waitingline">
+    <div className="">
       <form onSubmit={handleSubmit}>
         <button
           type="submit"

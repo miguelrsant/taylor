@@ -3,7 +3,9 @@
 @use "home-page/impulsionam.scss";
 @use "home-page/pilares.scss";
 @use "home-page/negocio.scss";
+@use "home-page/header.scss";
 @use "waitingline/waitingline.scss";
+@use "me/me.scss";
 
 * {
   margin: 0;
@@ -160,6 +162,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 999;
 }
 
 .loding-svg {

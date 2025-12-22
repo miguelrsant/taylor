@@ -55,7 +55,7 @@ export default function Page() {
         </p>
 
         <div className="cadastro-taylor">
-          <form onSubmit={handleSubmit}>
+          <form className="form-cadastro" onSubmit={handleSubmit}>
             <input type="text" name="name" placeholder="Joãozinho" required />
             <input
               type="email"

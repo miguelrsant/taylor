@@ -7,6 +7,7 @@ import Impulsionam from "@/components/Home/SectionImpulcionam";
 import Negocio from "@/components/Home/SectionNegocio";
 import Logind from "@/components/Assets/Loding";
 import { useLayoutEffect } from "react";
+import Header from "@/components/Assets/Header";
 
 export default function HomePage() {
   useLayoutEffect(() => {
@@ -18,6 +19,7 @@ export default function HomePage() {
 
   return (
     <div className="all-content">
+      <Header></Header>
       <Logind></Logind>
       <Home></Home>
       <Pilares></Pilares>

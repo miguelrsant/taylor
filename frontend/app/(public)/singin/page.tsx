@@ -54,7 +54,7 @@ export default function Page() {
         </p>
 
         <div className="cadastro-taylor">
-          <form onSubmit={handleSubmit}>
+          <form className="form-cadastro" onSubmit={handleSubmit}>
             <input
               type="email"
               name="email"
@@ -76,6 +76,13 @@ export default function Page() {
               {loading ? "Logando..." : "Logar"}
             </button>
           </form>
+          <a
+            href="/recover"
+            style={{ color: "white" }}
+            rel="noopener noreferrer"
+          >
+            Forgot your password?
+          </a>
           {message && (
             <p
               className="status-message"
