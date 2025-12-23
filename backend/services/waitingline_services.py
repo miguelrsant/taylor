@@ -1,7 +1,9 @@
 from database.connection import db
 from database.models.waitingline import Waitingline
 from sqlalchemy.exc import IntegrityError
-from core.email_client import email_client
+from jobs.queue import queue
+from jobs.tasks import send_email_waitingline
+from rq import Retry
 
 
 def add_user_to_waiting_line(name: str, email: str):
@@ -21,24 +23,23 @@ def add_user_to_waiting_line(name: str, email: str):
         db.session.rollback()
         return {"status": "error", "message": f"Erro ao salvar no banco: {str(e)}"}
 
-    html_content = f"""
-    <h1>Obrigado por se inscrever no Taylor!</h1>
-    <p>Olá <strong>{new_entry.name}</strong>,</p>
-    <p>Recebemos sua inscrição com sucesso. Você receberá novidades e atualizações por e-mail — fique de olho na sua caixa de entrada.</p>
-    <p>— Equipe Taylor</p>
-    """
 
     try:
-        email_client.send_email(
-            to=new_entry.email,
-            subject="Você está na lista de espera do TAYLOR",
-            html=html_content
+
+        job = queue.enqueue(
+            send_email_waitingline,
+            email,
+            name,
+            job_timeout=120,
+            retry=Retry(max=3, interval=[10, 60, 300])
         )
+    
     except Exception as email_error:
         print(f"Erro ao enviar email: {email_error}")
 
     return {
         "status": "success",
         "message": "Adicionado à fila.",
-        "id": new_entry.id
+        "id": new_entry.id,
+        "email_job_id": job.id if 'job' in locals() else None
     }
