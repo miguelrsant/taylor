@@ -6,7 +6,7 @@ export function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
 
   const isAuthRoute =
-    pathname.startsWith("/singin") || pathname.startsWith("/register");
+    pathname.startsWith("/signin") || pathname.startsWith("/register");
 
   const isProtectedRoute =
     pathname.startsWith("/auth/me") ||
@@ -18,7 +18,7 @@ export function middleware(req: NextRequest) {
   }
 
   if (!token && isProtectedRoute) {
-    return NextResponse.redirect(new URL("/singin", req.url));
+    return NextResponse.redirect(new URL("/signin", req.url));
   }
 
   return NextResponse.next();

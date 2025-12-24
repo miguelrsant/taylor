@@ -5,7 +5,9 @@ from database.connection import db
 from database.models.user import User
 from database.models.password_reset import PasswordReset
 from database.models.sessions import Sessions
-from core.email_client import email_client
+from jobs.queue import queue
+from jobs.tasks import send_email_reset
+from rq import Retry
 
 
 def ResetPassword(new_password: str, user_id: str, id: str):
@@ -25,19 +27,15 @@ def ResetPassword(new_password: str, user_id: str, id: str):
     password_reset.used = True
     db.session.commit()
 
-    html_content = f"""
-        <h1>Senha Redefinida com Sucesso</h1>
-        <p>Olá <strong>{user.name}</strong>,</p>
-        <p>Sua senha foi redefinida com sucesso.</p>
-        <p>— Equipe Taylor</p>
-        """
-
     try:
-        email_client.send_email(
-            to=user.email,
-            subject="RECUPERAÇÃO DE SENHA - TAYLOR",
-            html=html_content
+        job = queue.enqueue(
+            send_email_reset,
+            user.email,
+            name=user.name,
+            job_timeout=120,
+            retry=Retry(max=3, interval=[10, 60, 300])
         )
+    
     except Exception as email_error:
         print(f"Erro ao enviar email: {email_error}")
 

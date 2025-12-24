@@ -7,7 +7,9 @@ from database.connection import db
 from database.models.user import User
 from database.models.password_reset import PasswordReset
 from database.models.password_reset import generate_id
-from core.email_client import email_client
+from jobs.queue import queue
+from jobs.tasks import send_email_recover_password
+from rq import Retry
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -61,21 +63,15 @@ def RecoverPass(email: str):
         revoked=False
     )
 
-    html_content = f"""
-        <h1>Recuperação de Senha</h1>
-        <p>Olá <strong>{user.name}</strong>,</p>
-        <p>Recebemos uma solicitação para redefinir sua senha. Se você não fez essa solicitação, por favor, ignore este e-mail.</p>
-        <p>Para redefinir sua senha, clique no link abaixo:</p>
-        <p><a href="https://taylorhub.com.br/reset-password?token={token}">Redefinir Senha</a></p>
-        <p>Este link expirará em {EXPIRES_MINUTES_PASSWORD_RESET} minutos.</p>
-        <p>— Equipe Taylor</p>
-        """
-
     try:
-        email_client.send_email(
-            to=user.email,
-            subject="RECUPERAÇÃO DE SENHA - TAYLOR",
-            html=html_content
+        job = queue.enqueue(
+            send_email_recover_password,
+            email,
+            name=user.name,
+            token=token,
+            expires_minutes=EXPIRES_MINUTES_PASSWORD_RESET,
+            job_timeout=120,
+            retry=Retry(max=3, interval=[10, 60, 300])
         )
     except Exception as email_error:
         print(f"Erro ao enviar email: {email_error}")

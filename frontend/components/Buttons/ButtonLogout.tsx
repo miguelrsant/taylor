@@ -23,7 +23,7 @@ export default function ButtonLogout() {
         throw new Error("Logout failed");
       }
 
-      router.replace("/singin");
+      router.replace("/signin");
     } catch (err) {
       console.error(err);
       alert("Erro ao sair. Tente novamente.");

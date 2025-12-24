@@ -2,8 +2,10 @@ from flask import jsonify
 import bcrypt
 from database.connection import db
 from database.models.user import User
-from core.email_client import email_client
-from services.auth.singin_services import AcessLogin
+from jobs.queue import queue
+from jobs.tasks import send_email_register
+from rq import Retry
+from services.auth.signin_services import AcessLogin
 
 
 def CreateRegister(name: str, email: str, password: str):
@@ -24,19 +26,16 @@ def CreateRegister(name: str, email: str, password: str):
     db.session.add(user)
     db.session.commit()
 
-    html_content = f"""
-    <h1>Obrigado por se registrar no Taylor!</h1>
-    <p>Olá <strong>{user.name}</strong>,</p>
-    <p>Seu cadastro foi realizado com sucesso. Em breve você receberá novidades e atualizações diretamente no seu e-mail.</p>
-    <p>— Equipe Taylor</p>
-    """
-
     try:
-        email_client.send_email(
-            to=user.email,
-            subject="Você agora está no TAYLOR",
-            html=html_content
+
+        job = queue.enqueue(
+            send_email_register,
+            email,
+            name,
+            job_timeout=120,
+            retry=Retry(max=3, interval=[10, 60, 300])
         )
+            
     except Exception as email_error:
         print(f"Erro ao enviar email: {email_error}")
 

@@ -1,10 +1,10 @@
 from flask import Blueprint, request
-from services.auth.singin_services import AcessLogin
+from services.auth.signin_services import AcessLogin
 
-singin_bp = Blueprint("singin", __name__, url_prefix="/singin")
+signin_bp = Blueprint("signin", __name__, url_prefix="/signin")
 
 
-@singin_bp.post("/")
+@signin_bp.post("/")
 def index():
 
     data = request.get_json()

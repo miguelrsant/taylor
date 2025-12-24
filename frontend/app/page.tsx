@@ -3,9 +3,9 @@
 import Home from "@/components/Home/HomePage";
 import Pilares from "@/components/Home/SectionPilares";
 import Escolher from "@/components/Home/SectionEscolher";
-import Impulsionam from "@/components/Home/SectionImpulcionam";
+import Impulsionam from "@/components/Home/SectionImpulsionam";
 import Negocio from "@/components/Home/SectionNegocio";
-import Logind from "@/components/Assets/Loding";
+import Logind from "@/components/Assets/Loading";
 import { useLayoutEffect } from "react";
 import Header from "@/components/Assets/Header";
 

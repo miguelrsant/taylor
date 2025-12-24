@@ -27,8 +27,8 @@ def create_app():
     from routes.auth.register import register_bp
     app.register_blueprint(register_bp)
 
-    from routes.auth.singin import singin_bp
-    app.register_blueprint(singin_bp)
+    from routes.auth.signin import signin_bp
+    app.register_blueprint(signin_bp)
 
     from routes.auth.me import me_route
     app.register_blueprint(me_route)

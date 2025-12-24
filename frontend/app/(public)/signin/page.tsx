@@ -17,7 +17,7 @@ export default function Page() {
       .value;
 
     try {
-      const res = await fetch(`/api/singin/`, {
+      const res = await fetch(`/api/signin/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

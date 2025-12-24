@@ -4,7 +4,7 @@ export default function Header() {
       <nav>
         <ul>
           <li>
-            <a href="/singin">Sing-in</a>
+            <a href="/signin">Signin</a>
           </li>
           <li>
             <a href="/register">Register</a>
