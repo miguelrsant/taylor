@@ -39,6 +39,8 @@ def create_app():
     from routes.auth.logout import logout_bp
     app.register_blueprint(logout_bp)
 
+    from routes.websocket.chat import chat_bp
+    app.register_blueprint(chat_bp)
     return app
 
 
