@@ -18,5 +18,7 @@ class Messages(db.Model):
 
     role = db.Column(db.String(16), nullable=False)
     content = db.Column(db.Text, nullable=False)
+    file_path = db.Column(db.String(255), nullable=True)
+    original_filename = db.Column(db.String(255), nullable=True)
 
     created_at = db.Column(db.DateTime, server_default=func.now(), nullable=False)

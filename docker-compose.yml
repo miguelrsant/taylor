@@ -29,6 +29,8 @@ services:
     ports:
       - "8000:8000"
     restart: unless-stopped
+    volumes:
+      - ./backend/file_temp:/app/backend/file_temps
     env_file:
       - .env
     networks:

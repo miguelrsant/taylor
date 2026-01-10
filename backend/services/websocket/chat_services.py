@@ -12,7 +12,7 @@ SYSTEM_PROMPT = (
     "Responda de forma prática e com passos claros."
 )
 
-HISTORY_LIMIT = 20
+HISTORY_LIMIT = 70
 
 
 def _get_or_create_conversation(user_id: int, conversation_id: str | None) -> Conversations:
@@ -47,10 +47,10 @@ def _get_recent_messages(conversation_id: str, limit: int = HISTORY_LIMIT) -> li
     return [{"role": r.role, "content": r.content} for r in rows]
 
 
-def chat_turn(user_id: int, conversation_id: str | None, user_message: str) -> dict:
+def chat_turn(user_id: int, conversation_id: str | None, user_message: str, file_path: str | None = None, original_filename: str | None = None,) -> dict:
     conv = _get_or_create_conversation(user_id, conversation_id)
 
-    db.session.add(Messages(conversation_id=conv.id, role="user", content=user_message))
+    db.session.add(Messages(conversation_id=conv.id, role="user", content=user_message, file_path=file_path, original_filename=original_filename))
     db.session.commit()
 
     memory_text = _get_user_memory_text(user_id)
