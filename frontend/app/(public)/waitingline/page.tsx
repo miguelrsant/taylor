@@ -36,7 +36,7 @@ export default function Page() {
       });
 
       setMessage(
-        "🎉 Seu cadastro foi confirmado! Em breve você receberá novidades especiais."
+        "🎉 Seu cadastro foi confirmado! Em breve você receberá novidades especiais.",
       );
 
       form.reset();

@@ -17,7 +17,8 @@ HISTORY_LIMIT = 70
 
 def _get_or_create_conversation(user_id: int, conversation_id: str | None) -> Conversations:
     if conversation_id:
-        conv = Conversations.query.filter_by(id=conversation_id, user_id=user_id).first()
+        conv = Conversations.query.filter_by(
+            id=conversation_id, user_id=user_id).first()
         if not conv:
             raise ValueError("CONVERSATION_NOT_FOUND")
         return conv
@@ -50,7 +51,8 @@ def _get_recent_messages(conversation_id: str, limit: int = HISTORY_LIMIT) -> li
 def chat_turn(user_id: int, conversation_id: str | None, user_message: str, file_path: str | None = None, original_filename: str | None = None,) -> dict:
     conv = _get_or_create_conversation(user_id, conversation_id)
 
-    db.session.add(Messages(conversation_id=conv.id, role="user", content=user_message, file_path=file_path, original_filename=original_filename))
+    db.session.add(Messages(conversation_id=conv.id, role="user", content=user_message,
+                   file_path=file_path, original_filename=original_filename))
     db.session.commit()
 
     memory_text = _get_user_memory_text(user_id)
@@ -58,7 +60,8 @@ def chat_turn(user_id: int, conversation_id: str | None, user_message: str, file
 
     messages = [{"role": "system", "content": SYSTEM_PROMPT}]
     if memory_text:
-        messages.append({"role": "system", "content": f"Contexto do usuário:\n{memory_text}"})
+        messages.append(
+            {"role": "system", "content": f"Contexto do usuário:\n{memory_text}"})
     messages.extend(recent)
 
     resp = client.chat.completions.create(
@@ -67,7 +70,8 @@ def chat_turn(user_id: int, conversation_id: str | None, user_message: str, file
     )
     reply = (resp.choices[0].message.content or "").strip()
 
-    db.session.add(Messages(conversation_id=conv.id, role="assistant", content=reply))
+    db.session.add(Messages(conversation_id=conv.id,
+                   role="assistant", content=reply))
     db.session.commit()
 
     return {"conversation_id": conv.id, "reply": reply}

@@ -10,6 +10,7 @@ chat_bp = Blueprint("chat", __name__, url_prefix="/chat")
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 UPLOAD_DIR = os.path.join(BASE_DIR, "file_temps")
 
+
 @chat_bp.post("/")
 @auth_required
 def index(user_id, session):
@@ -19,7 +20,7 @@ def index(user_id, session):
 
     if not message:
         return jsonify({"msg": "Campo 'message' é obrigatório"}), 400
-    
+
     savage_path = None
     orinal_filename = None
 

@@ -8,7 +8,16 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: radial-gradient(circle, rgba(3, 193, 245, 0.1764705882), rgba(3, 193, 245, 0.1019607843), rgba(3, 193, 245, 0.0274509804), rgba(3, 193, 245, 0.0274509804), rgba(3, 193, 245, 0), rgba(3, 193, 245, 0), rgba(3, 193, 245, 0));
+  background: radial-gradient(
+    circle,
+    rgba(3, 193, 245, 0.1764705882),
+    rgba(3, 193, 245, 0.1019607843),
+    rgba(3, 193, 245, 0.0274509804),
+    rgba(3, 193, 245, 0.0274509804),
+    rgba(3, 193, 245, 0),
+    rgba(3, 193, 245, 0),
+    rgba(3, 193, 245, 0)
+  );
   animation: pulse 1.5s infinite ease-in-out;
   animation-delay: 4s;
   background-position: center;
@@ -390,7 +399,7 @@
   width: 100%;
   max-width: 750px;
   -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   min-height: 260px;
   border-radius: 15px;
   background-color: rgba(15, 28, 35, 0.6705882353);
@@ -535,7 +544,11 @@ body {
   outline: 0;
   border: 0;
 }
-.waitingline .card-waitingline .cadastro-taylor form.form-cadastro button:hover {
+.waitingline
+  .card-waitingline
+  .cadastro-taylor
+  form.form-cadastro
+  button:hover {
   transform: scale(1.1);
 }
 .waitingline .card-waitingline .cadastro-taylor .p-footer {
@@ -564,7 +577,14 @@ h3 {
 }
 
 .text-gradient {
-  background-image: linear-gradient(90deg, #03c2f5, #13b1a3, #03c2f5, #13b1a3, #03c2f5);
+  background-image: linear-gradient(
+    90deg,
+    #03c2f5,
+    #13b1a3,
+    #03c2f5,
+    #13b1a3,
+    #03c2f5
+  );
   background-size: 300%; /* deixa mais dramático */
   background-position: 0% 50%;
   background-clip: text;
@@ -730,4 +750,4 @@ input:-webkit-autofill {
   border: 0.2px solid #252b37;
   outline: 0;
   caret-color: #00bfff !important;
-}/*# sourceMappingURL=index.css.map */
+} /*# sourceMappingURL=index.css.map */

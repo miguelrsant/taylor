@@ -35,7 +35,7 @@ def CreateRegister(name: str, email: str, password: str):
             job_timeout=120,
             retry=Retry(max=3, interval=[10, 60, 300])
         )
-            
+
     except Exception as email_error:
         print(f"Erro ao enviar email: {email_error}")
 

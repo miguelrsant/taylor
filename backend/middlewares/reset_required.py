@@ -43,7 +43,8 @@ def reset_required(f):
 
         truncated = token[:72]
 
-        password_reset = PasswordReset.query.filter_by(id=id, used=False, revoked=False).first()
+        password_reset = PasswordReset.query.filter_by(
+            id=id, used=False, revoked=False).first()
 
         if not password_reset:
             return jsonify({"msg": "Token not found"}), 401

@@ -30,3 +30,10 @@ restart: kill-ports
 format:
 	cd backend && pdm run autopep8 --in-place --recursive . 
 	cd frontend && npm run lint:fix
+
+migrate:
+	cd backend && pdm run flask --app main.py db migrate -m "$(m)" -d database/migrations
+
+commit:format
+	git add .
+	git commit -m "$(m)"

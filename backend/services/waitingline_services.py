@@ -23,7 +23,6 @@ def add_user_to_waiting_line(name: str, email: str):
         db.session.rollback()
         return {"status": "error", "message": f"Erro ao salvar no banco: {str(e)}"}
 
-
     try:
 
         job = queue.enqueue(
@@ -33,7 +32,7 @@ def add_user_to_waiting_line(name: str, email: str):
             job_timeout=120,
             retry=Retry(max=3, interval=[10, 60, 300])
         )
-    
+
     except Exception as email_error:
         print(f"Erro ao enviar email: {email_error}")
 

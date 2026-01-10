@@ -18,7 +18,7 @@ export async function POST(req: Request) {
   } catch (error) {
     return NextResponse.json(
       { status: "error", message: "Erro ao conectar ao servidor." },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

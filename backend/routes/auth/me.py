@@ -19,5 +19,5 @@ def get_me(user_id, session):
         "email": user.email,
         "session": {
             "id": session.id,
-    }
+        }
     }), 200

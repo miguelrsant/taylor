@@ -32,7 +32,7 @@ export default function Recover() {
       }
 
       setSuccessMsg(
-        "Email de recuperação enviado com sucesso. Verifique sua caixa de entrada."
+        "Email de recuperação enviado com sucesso. Verifique sua caixa de entrada.",
       );
       setEmail("");
     } catch (err) {

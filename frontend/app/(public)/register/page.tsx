@@ -29,7 +29,7 @@ export default function Page() {
       if (!res.ok) {
         const data = await res.json();
         setMessage(
-          data.msg || "❌ Algo deu errado. Tente novamente em instantes."
+          data.msg || "❌ Algo deu errado. Tente novamente em instantes.",
         );
         return;
       }

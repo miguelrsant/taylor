@@ -2,8 +2,10 @@ from database.connection import db
 from sqlalchemy.sql import func
 import uuid
 
+
 def uuid_str():
     return str(uuid.uuid4())
+
 
 class Conversations(db.Model):
     __tablename__ = "conversations"
@@ -13,5 +15,7 @@ class Conversations(db.Model):
 
     title = db.Column(db.String(120), nullable=True)
 
-    created_at = db.Column(db.DateTime, server_default=func.now(), nullable=False)
-    updated_at = db.Column(db.DateTime, server_default=func.now(), onupdate=func.now(), nullable=False)
+    created_at = db.Column(
+        db.DateTime, server_default=func.now(), nullable=False)
+    updated_at = db.Column(
+        db.DateTime, server_default=func.now(), onupdate=func.now(), nullable=False)

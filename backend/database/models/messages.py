@@ -2,8 +2,10 @@ from database.connection import db
 from sqlalchemy.sql import func
 import uuid
 
+
 def uuid_str():
     return str(uuid.uuid4())
+
 
 class Messages(db.Model):
     __tablename__ = "messages"
@@ -21,4 +23,5 @@ class Messages(db.Model):
     file_path = db.Column(db.String(255), nullable=True)
     original_filename = db.Column(db.String(255), nullable=True)
 
-    created_at = db.Column(db.DateTime, server_default=func.now(), nullable=False)
+    created_at = db.Column(
+        db.DateTime, server_default=func.now(), nullable=False)
