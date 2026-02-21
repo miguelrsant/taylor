@@ -82,7 +82,11 @@ services:
     volumes:
       - ./certbot/conf:/etc/letsencrypt
       - ./certbot/www:/var/www/certbot
-    entrypoint: "/bin/sh -c 'while :; do sleep 12h & wait $${!}; certbot renew; done;'"
+    entrypoint: >
+      /bin/sh -c "while :; do
+      sleep 12h & wait $${!};
+      certbot renew --deploy-hook 'docker exec taylor-nginx nginx -s reload';
+      done;"
 
 networks:
   taylor-net:
