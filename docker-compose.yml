@@ -82,6 +82,7 @@ services:
     volumes:
       - ./certbot/conf:/etc/letsencrypt
       - ./certbot/www:/var/www/certbot
+      - /var/run/docker.sock:/var/run/docker.sock
     entrypoint: >
       /bin/sh -c "while :; do
       sleep 12h & wait $${!};
